@@ -85,11 +85,8 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+export EDITOR='nvim'
+bindkey -v
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -115,6 +112,26 @@ alias pa='pacman -Ss' # list availabe package
 alias pc='sudo pacman -Sc' # remove unused cache
 alias po='pacman -Qtdq | sudo pacman -Rns -' # remove unused packages, also try > pacman -Qqd | pacman -Rsu --print -
 alias vc='code'  # gui code editor
+
+# Personal
+alias icat="kitty +kitten icat"
+alias grep='grep --color=auto'
+
+# Navigation
+alias cdrp="cd /home/thomas/repos"
+alias cdcp="cd /home/thomas/repos/cp/"
+alias cddp="cd /home/thomas/repos/deep_perception"
+alias cdbe="cd /home/thomas/repos/api-db-management/"
+alias cdnba="cd /home/thomas/repos/NBA_Prediction_V3/"
+alias cdmo="cd /home/thomas/repos/ml-ops"
+alias cddl="cd /home/thomas/Downloads/"
+alias cddc="cd /home/thomas/Documents/"
+alias cdob="cd /home/thomas/Brain/"
+alias cdcf="cd /home/thomas/.config/"
+alias cdnv="cd /home/thomas/.config/nvim/"
+alias cdhp="cd /home/thomas/.config/hypr/"
+alias cdkn="cd /home/thomas/.config/kanata/"
+alias cdhd="cd /home/thomas/hyprdots/"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
