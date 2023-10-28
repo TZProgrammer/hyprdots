@@ -27,7 +27,7 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
@@ -112,26 +112,12 @@ alias pa='pacman -Ss' # list availabe package
 alias pc='sudo pacman -Sc' # remove unused cache
 alias po='pacman -Qtdq | sudo pacman -Rns -' # remove unused packages, also try > pacman -Qqd | pacman -Rsu --print -
 alias vc='code'  # gui code editor
+alias nv='nvim'  # gui code editor
 
 # Personal
 alias icat="kitty +kitten icat"
 alias grep='grep --color=auto'
 
-# Navigation
-alias cdrp="cd /home/thomas/repos"
-alias cdcp="cd /home/thomas/repos/cp/"
-alias cddp="cd /home/thomas/repos/deep_perception"
-alias cdbe="cd /home/thomas/repos/api-db-management/"
-alias cdnba="cd /home/thomas/repos/NBA_Prediction_V3/"
-alias cdmo="cd /home/thomas/repos/ml-ops"
-alias cddl="cd /home/thomas/Downloads/"
-alias cddc="cd /home/thomas/Documents/"
-alias cdob="cd /home/thomas/Brain/"
-alias cdcf="cd /home/thomas/.config/"
-alias cdnv="cd /home/thomas/.config/nvim/"
-alias cdhp="cd /home/thomas/.config/hypr/"
-alias cdkn="cd /home/thomas/.config/kanata/"
-alias cdhd="cd /home/thomas/hyprdots/"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -144,3 +130,6 @@ pokemon-colorscripts --no-title -r 1,3,6
 
 #Display random gifs
 #kitten icat --align left $(find $HOME/.config/neofetch/gifs/ -name "*.gif" | sort -R | head -1)
+export _ZO_FZF_OPTS=""
+export _ZO_ECHO="1"
+eval "$(zoxide init --cmd j zsh)"
