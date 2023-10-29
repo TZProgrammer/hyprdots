@@ -143,6 +143,8 @@ alias nv='nvim'  # gui code editor
 alias icat="kitty +kitten icat"
 alias grep='grep --color=auto'
 
+# Keybindings
+bindkey '^Y' autosuggest-accept
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
