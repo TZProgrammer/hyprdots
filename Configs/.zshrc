@@ -7,7 +7,7 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 zstyle ':omz:update' mode auto      # update automatically without asking
 
 # List of plugins used
-plugins=()
+plugins=(git sudo zsh-256color zsh-autosuggestions zsh-syntax-highlighting)
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 source $ZSH/oh-my-zsh.sh
 
