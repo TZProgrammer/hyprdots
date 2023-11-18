@@ -10,7 +10,14 @@ if [ $? -ne 0 ] ; then
     exit 1
 fi
 
-CfgDir=`echo $CloneDir/Configs`
+ThemeOverride="${1:-}"              #override default config list with custom theme list [param 1]
+CfgDir="${2:-${CloneDir}/Configs}"  #override default config path with custom theme path [param 2]
+
+if [ ! -f "${ThemeOverride}restore_cfg.lst" ] || [ ! -d "${CfgDir}" ] ; then
+    echo "ERROR : '${ThemeOverride}restore_cfg.lst' or '${CfgDir}' does not exist..."
+    exit 1
+fi
+
 BkpDir="${HOME}/.config/$(date +'cfg_%y%m%d_%Hh%Mm%Ss')"
 
 if [ -d $BkpDir ] ; then
@@ -20,13 +27,13 @@ else
     mkdir -p $BkpDir
 fi
 
-cat restore_cfg.lst | while read lst
+cat "${ThemeOverride}restore_cfg.lst" | while read lst
 do
 
-    pth=`echo $lst | awk -F '|' '{print $1}'`
-    cfg=`echo $lst | awk -F '|' '{print $2}'`
-    pkg=`echo $lst | awk -F '|' '{print $3}'`
-    pth=`eval echo $pth`
+    bkpFlag=`echo $lst | awk -F '|' '{print $1}'`
+    eval pth=`echo $lst | awk -F '|' '{print $2}'`
+    cfg=`echo $lst | awk -F '|' '{print $3}'`
+    pkg=`echo $lst | awk -F '|' '{print $4}'`
 
     while read pkg_chk
     do
@@ -40,8 +47,9 @@ do
     echo "${cfg}" | xargs -n 1 | while read cfg_chk
     do
         tgt=`echo $pth | sed "s+^${HOME}++g"`
+        if [[ -z "$pth" ]]; then continue ; fi #Added this if cfg.lst have blank lines
 
-        if [ -d $pth/$cfg_chk ] || [ -f $pth/$cfg_chk ]
+        if ( [ -d $pth/$cfg_chk ] || [ -f $pth/$cfg_chk ] ) && [ "${bkpFlag}" == "Y" ]
             then
 
             if [ ! -d $BkpDir$tgt ] ; then
@@ -50,7 +58,7 @@ do
 
             mv $pth/$cfg_chk $BkpDir$tgt
             echo "config backed up $pth/$cfg_chk --> $BkpDir$tgt..."
-        fi 
+        fi
 
         if [ ! -d $pth ] ; then
             mkdir -p $pth
@@ -61,11 +69,11 @@ do
     done
 
 done
-cp -r $BkpDir/.config/swww/.cache $HOME/.config/swww
+
 touch ${HOME}/.config/hypr/monitors.conf
 touch ${HOME}/.config/hypr/userprefs.conf
 
-if nvidia_detect ; then
+if nvidia_detect && [ $(grep '^source = ~/.config/hypr/nvidia.conf' ${HOME}/.config/hypr/hyprland.conf | wc -l) -eq 0 ] ; then
     cp ${CfgDir}/.config/hypr/nvidia.conf ${HOME}/.config/hypr/nvidia.conf
     echo -e 'source = ~/.config/hypr/nvidia.conf # auto sourced vars for nvidia\n' >> ${HOME}/.config/hypr/hyprland.conf
 fi
@@ -73,3 +81,4 @@ fi
 ./create_cache.sh
 ./restore_zsh.sh
 ./restore_lnk.sh
+
