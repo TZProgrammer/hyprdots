@@ -148,6 +148,10 @@ EOF
     done < system_ctl.lst
 fi
 
+rm /home/thomas/.config/hypr/hyprland.conf
+rm /home/thomas/.config/hypr/keybindings.conf
+rm /home/thomas/.zshrc
+
 ln -s /home/thomas/hyprdots/Configs/.config/hypr/hyprland.conf /home/thomas/.config/hypr/hyprland.conf
 ln -s /home/thomas/hyprdots/Configs/.config/hypr/keybindings.conf /home/thomas/.config/hypr/keybindings.conf
 ln -s /home/thomas/hyprdots/Configs/.zshrc /home/thomas/.zshrc
