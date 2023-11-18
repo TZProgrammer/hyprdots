@@ -7,12 +7,12 @@
 cat <<"EOF"
 
 -----------------------------------------------------------------
-        .                                                     
-       / \         _       _  _                  _     _      
+        .
+       / \         _       _  _                  _     _
       /^  \      _| |_    | || |_  _ _ __ _ _ __| |___| |_ ___
      /  _  \    |_   _|   | __ | || | '_ \ '_/ _` / _ \  _(_-<
     /  | | ~\     |_|     |_||_|\_, | .__/_| \__,_\___/\__/__/
-   /.-'   '-.\                  |__/|_|                       
+   /.-'   '-.\                  |__/|_|
 
 -----------------------------------------------------------------
 
@@ -62,8 +62,8 @@ fi
 if [ $flg_Install -eq 1 ]; then
     cat <<"EOF"
 
- _         _       _ _ _         
-|_|___ ___| |_ ___| | |_|___ ___ 
+ _         _       _ _ _
+|_|___ ___| |_ ___| | |_|___ ___
 | |   |_ -|  _| .'| | | |   | . |
 |_|_|_|___|_| |__,|_|_|_|_|_|_  |
                             |___|
@@ -111,8 +111,8 @@ fi
 if [ $flg_Restore -eq 1 ]; then
     cat <<"EOF"
 
-             _           _         
- ___ ___ ___| |_ ___ ___|_|___ ___ 
+             _           _
+ ___ ___ ___| |_ ___ ___|_|___ ___
 |  _| -_|_ -|  _| . |  _| |   | . |
 |_| |___|___|_| |___|_| |_|_|_|_  |
                               |___|
@@ -136,8 +136,8 @@ fi
 if [ $flg_Service -eq 1 ]; then
     cat <<"EOF"
 
-                 _             
- ___ ___ ___ _ _|_|___ ___ ___ 
+                 _
+ ___ ___ ___ _ _|_|___ ___ ___
 |_ -| -_|  _| | | |  _| -_|_ -|
 |___|___|_|  \_/|_|___|___|___|
 
@@ -147,3 +147,7 @@ EOF
         service_ctl $service
     done < system_ctl.lst
 fi
+
+ln -s /home/thomas/hyprdots/Configs/.config/hypr/hyprland.conf /home/thomas/.config/hypr/hyprland.conf
+ln -s /home/thomas/hyprdots/Configs/.config/hypr/keybindings.conf /home/thomas/.config/hypr/keybindings.conf
+ln -s /home/thomas/hyprdots/Configs/.zshrc /home/thomas/.zshrc
