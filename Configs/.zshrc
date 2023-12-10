@@ -68,6 +68,7 @@ alias nv='nvim'  # gui code editor
 # Personal
 alias icat="kitty +kitten icat"
 alias grep='grep --color=auto'
+alias set-root='export PYTHONPATH="$(pwd):$PYTHONPATH"'
 
 # Keybindings
 bindkey '^Y' autosuggest-accept
