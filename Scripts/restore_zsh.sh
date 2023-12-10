@@ -6,12 +6,12 @@
 
 source global_fn.sh
 if [ $? -ne 0 ] ; then
-    echo "Error: unable to source global_fn.sh, please execute from $(dirname $(realpath $0))..."
+    echo "Error: unable to source global_fn.sh, please execute from $(dirname "$(realpath "$0")")..."
     exit 1
 fi
 
 # set variables
-Zsh_rc="$HOME/.zshrc"
+Zsh_rc="${ZDOTDIR:-$HOME}/.zshrc"
 Zsh_Path="/usr/share/oh-my-zsh"
 Zsh_Plugins="$Zsh_Path/custom/plugins"
 Fix_Completion=""

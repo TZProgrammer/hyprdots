@@ -6,7 +6,7 @@
 
 source global_fn.sh
 if [ $? -ne 0 ] ; then
-    echo "Error: unable to source global_fn.sh, please execute from $(dirname $(realpath $0))..."
+    echo "Error: unable to source global_fn.sh, please execute from $(dirname "$(realpath "$0")")..."
     exit 1
 fi
 
@@ -25,7 +25,6 @@ if pkg_installed sddm
         sudo touch /etc/sddm.conf.d/kde_settings.conf
         sudo cp /etc/sddm.conf.d/kde_settings.conf /etc/sddm.conf.d/kde_settings.t2.bkp
         sudo cp /usr/share/sddm/themes/corners/kde_settings.conf /etc/sddm.conf.d/
-        setfacl -m u:sddm:x /home/${USER}
     fi
 
     if [ ! -f /usr/share/sddm/faces/${USER}.face.icon ] && [ -f ${CloneDir}/Source/misc/${USER}.face.icon ] ; then
