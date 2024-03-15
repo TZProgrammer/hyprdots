@@ -7,6 +7,9 @@
 set -e
 
 CloneDir=`dirname "$(dirname "$(realpath "$0")")"`
+ConfDir="${XDG_CONFIG_HOME:-$HOME/.config}"
+HyprdotsDir="${ConfDir}/hyprdots"
+ThemeCtl="${HyprdotsDir}/theme.ctl"
 
 service_ctl()
 {
@@ -87,4 +90,21 @@ nvidia_detect()
         #echo "nvidia card not detected..."
         return 1
     fi
+}
+
+prompt_timer()
+{
+    set +e
+    local timsec=$1
+    local msg=$2
+    local pread=""
+    while [[ $timsec -ge 0 ]] ; do
+        echo -ne "\033[0K\r${msg} (${timsec}s) : "
+        read -t 1 -n 1 -s promptIn
+        [ $? -eq 0 ] && break
+        ((timsec--))
+    done
+    export promptIn
+    echo ${promptIn}
+    set -e
 }
