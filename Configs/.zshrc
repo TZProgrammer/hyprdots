@@ -97,3 +97,4 @@ pokemon-colorscripts --no-title -r 1,3,6
 export _ZO_FZF_OPTS=""
 export _ZO_ECHO="1"
 eval "$(zoxide init --cmd j zsh)"
+eval "$(atuin init zsh)"
