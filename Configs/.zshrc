@@ -91,6 +91,7 @@ alias mkdir='mkdir -p'
 
 #Display Pokemon
 pokemon-colorscripts --no-title -r 1,3,6
+# fastfetch -c neofetch
 
 # Zoxide configs
 export _ZO_FZF_OPTS=""
