@@ -2,7 +2,9 @@
 ZSH=/usr/share/oh-my-zsh/
 
 # Path to powerlevel10k theme
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+# source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+# eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/tokyonight_storm.omp.json)"
+eval "$(starship init zsh)"
 
 zstyle ':omz:update' mode auto      # update automatically without asking
 
