@@ -70,7 +70,7 @@ alias pa='$aurhelper -Ss' # list availabe package
 alias pc='$aurhelper -Sc' # remove unused cache
 alias po='$aurhelper -Qtdq | $aurhelper -Rns -' # remove unused packages, also try > $aurhelper -Qqd | $aurhelper -Rsu --print -
 alias vc='code' # gui code editor
-alias nv='nvim'  # gui code editor
+alias v='nvim' # clear terminal
 
 # Personal
 alias icat="kitty +kitten icat"
