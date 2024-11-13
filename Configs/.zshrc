@@ -53,6 +53,9 @@ function in {
     fi
 }
 
+# home-manager
+. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+
 # Helpful aliases
 alias  c='clear' # clear terminal
 alias  l='eza -lh  --icons=auto' # long list
